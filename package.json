@@ -2,12 +2,16 @@
   "name": "Stacker",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
+  "main": "./src/main.js",
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "electron": "electron . --hot"
   },
   "dependencies": {
+    "electron": "^1.8.4",
     "react": "^16.3.0",
     "react-dev-utils": "^5.0.0",
     "react-dom": "^16.3.0",
