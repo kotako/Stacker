@@ -2,14 +2,25 @@ const { app, BrowserWindow, Tray } = require('electron');
 const path = require('path');
 const url = require('url');
 
+let win = null;
+let tray = null;
+
 function createWindow() {
-  let win = new BrowserWindow({ width: 800, height: 600 });
+  win = new BrowserWindow({
+    width: 200,
+    height: 300,
+    show: false,
+    frame: false,
+    fullscreenable: false,
+    resizable: falses
+  });
+
   // Macのフルスクリーン上にも表示できるようにする
   app.dock.hide();
   win.setAlwaysOnTop(true, 'floating');
   win.setVisibleOnAllWorkspaces(true);
-  win.setFullScreenable(false);
 
+  // 開発中はHot Reloadさせる
   if (process.env.NODE_ENV == 'production') {
     win.loadURL(url.format({
       pathname: path.join(__dirname, '/../build/index.html'),
@@ -17,20 +28,39 @@ function createWindow() {
       slashes: true
     }));
   } else {
-    // 開発中はHot Reloadさせる
     win.loadURL('http://localhost:3000');
   }
-
+  win.on('blur', () => win.hide());
   win.on('closed', () => win = null);
+}
 
-  // Create Tray
-  let tray = new Tray(path.join(__dirname, '/../public/trayicon/icon.png'));
+function createTray() {
+  tray = new Tray(path.join(__dirname, '/../public/trayicon/icon.png'));
   tray.on('click', () => {
-    win.isVisible() ? win.hide() : win.show()
+    win.isVisible() ? win.hide() : showWindow()
   });
 }
 
-app.on('ready', createWindow);
+function showWindow() {
+  const position = getWindowPosition();
+  win.setPosition(position.x, position.y, false);
+  win.show();
+}
+
+function getWindowPosition() {
+  const windowBounds = win.getBounds();
+  const trayBounds = tray.getBounds();
+  return {
+    x: Math.round(trayBounds.x + (trayBounds.width / 2) - (windowBounds.width /2)),
+    y: Math.round(trayBounds.y + trayBounds.height + 4)
+  };
+}
+
+app.on('ready', () => {
+  createWindow();
+  createTray();
+});
+
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();
 });
