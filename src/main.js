@@ -12,7 +12,7 @@ function createWindow() {
     show: false,
     frame: false,
     fullscreenable: false,
-    resizable: falses
+    resizable: false
   });
 
   // Macのフルスクリーン上にも表示できるようにする

@@ -1,7 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
 
-const TodoColumn = ({ onClick, completed, text }) => (
+import React from 'react';
+
+type Props = {
+  onClick: Function,
+  completed: boolean,
+  text: string
+};
+
+const TodoColumn = ({ onClick, completed, text }: Props) => (
   <li
     onClick={onClick}
     style={{
@@ -10,11 +17,5 @@ const TodoColumn = ({ onClick, completed, text }) => (
     {text}
   </li>
 );
-
-TodoColumn.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  completed: PropTypes.bool.isRequired,
-  text: PropTypes.string.isRequired
-};
 
 export default TodoColumn;
