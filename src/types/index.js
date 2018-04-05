@@ -17,4 +17,9 @@ export type Note = {
   createdAt: number
 };
 
+export type Filter = {
+  name: string,
+  iconSrc: string,
+};
+
 export type Notes = Array<Note>;

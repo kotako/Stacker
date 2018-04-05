@@ -1,16 +1,18 @@
+// @flow
+
 import React from 'react';
 
 type Props = {
   addNote: Function
 };
 
-const AddNoteForm = ({ addNote }) => {
-  let input;
+const AddNoteForm = ({ addNote }: Props) => {
+  let input: ?HTMLInputElement;
   return (
     <div>
       <form onSubmit={e => {
           e.preventDefault();
-          if (!input.value.trim()) return;
+          if (input == null || !input.value.trim()) return;
           addNote(input.value);
           input.value = '';
         }}>
