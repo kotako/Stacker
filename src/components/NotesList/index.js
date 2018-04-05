@@ -7,7 +7,9 @@ import Note from '../Note';
 import type { Note as _Note, Notes } from '../../types';
 
 const List = styled.ul`
-  flex: 1;
+  flex-grow: 1;
+  flex-basis: 0;
+  overflow-y: scroll;
   list-style: none;
   padding: 0;
   margin: 0;

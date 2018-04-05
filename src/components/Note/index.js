@@ -14,6 +14,7 @@ const Column = styled.li`
 const Text = styled.p`
   padding: 0;
   margin: 0;
+  font-size: 0.8em;
   word-wrap: break-word;
 `;
 
