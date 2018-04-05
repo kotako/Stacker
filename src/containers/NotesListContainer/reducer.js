@@ -1,13 +1,14 @@
 // @flow
+
+import { Actions } from '../AddNoteFormContainer/actionTypes';
 import type { Notes, Action } from '../../types';
-import { Actions }  from '../AddNote/actionTypes';
 
 export type State = Notes;
 
 export default (state: State = [], action: Action): State => {
   switch (action.type) {
     case Actions.ADD_NOTE:
-      return [ ...state ];
+      return [ ...state, action.note ];
     default:
       return state;
   }

@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import TodoList from './containers/TodoList/reducer';
+import NotesList from './containers/NotesListContainer/reducer';
 
 export default combineReducers({
-  TodoList
+  NotesList
 });

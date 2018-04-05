@@ -13,6 +13,7 @@ const AddNoteForm = ({ addNote }: Props) => {
       <form onSubmit={e => {
           e.preventDefault();
           if (input == null || !input.value.trim()) return;
+          console.log(input.value);
           addNote(input.value);
           input.value = '';
         }}>

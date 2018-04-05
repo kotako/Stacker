@@ -1,6 +1,6 @@
 // @flow
-import type { State as NotesState } from '../containers/TodoList/reducer';
+import type { State as NotesListContainerState } from '../containers/NotesListContainer/reducer';
 
 export type State = {
-  NotesState: NotesState
+  NotesList: NotesListContainerState
 };
