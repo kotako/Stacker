@@ -6,6 +6,7 @@ import { createStore } from 'redux';
 import ReactDOM from 'react-dom';
 import App from './containers/App';
 import reducers from './reducers'
+import './config/globalStyle';
 import registerServiceWorker from './config/registerServiceWorker';
 
 import type { Store } from './types';

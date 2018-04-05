@@ -1,9 +1,17 @@
 // @flow
 
 import React from 'react';
+import styled from 'styled-components';
 import Note from '../Note';
 
 import type { Note as _Note, Notes } from '../../types';
+
+const List = styled.ul`
+  flex: 1;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+`;
 
 type Props = {
   notes: Notes,
@@ -11,7 +19,7 @@ type Props = {
 };
 
 const NotesList = ({ notes, toggleNote }: Props) => (
-  <ul>
+  <List>
     {notes.map((note: _Note) =>
       <Note
         key={note.id}
@@ -19,7 +27,7 @@ const NotesList = ({ notes, toggleNote }: Props) => (
         onClick={() => toggleNote(note.id)}
       />
     )}
-  </ul>
+  </List>
 );
 
 export default NotesList;
