@@ -1,14 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const TodoTextForm = ({ addTodo }) => {
+type Props = {
+  addNote: Function
+};
+
+const AddNoteForm = ({ addNote }) => {
   let input;
   return (
     <div>
       <form onSubmit={e => {
           e.preventDefault();
           if (!input.value.trim()) return;
-          addTodo(input.value);
+          addNote(input.value);
           input.value = '';
         }}>
         <input ref={node => input = node} />
@@ -18,8 +21,4 @@ const TodoTextForm = ({ addTodo }) => {
   );
 };
 
-TodoTextForm.propTypes = {
-  addTodo: PropTypes.func.isRequired
-}
-
-export default TodoTextForm;
+export default AddNoteForm;
