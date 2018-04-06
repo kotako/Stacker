@@ -3,6 +3,7 @@
 import { connect } from 'react-redux';
 import NotesList from '../../components/NotesList';
 import { Filters } from '../../types/filter';
+import { completeNote } from './actions';
 
 import type { State, Dispatch, Notes, Filter } from '../../types';
 
@@ -22,7 +23,7 @@ const mapStateToProps = (state: State): Object =>({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch): Object => ({
-  toggleNote: id => console.log(id)
+  toggleNote: note => dispatch(completeNote(note))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NotesList);

@@ -26,7 +26,7 @@ const NotesList = ({ notes, toggleNote }: Props) => (
       <Note
         key={note.id}
         note={note}
-        onClick={() => toggleNote(note.id)}
+        onClick={toggleNote}
       />
     )}
   </List>
