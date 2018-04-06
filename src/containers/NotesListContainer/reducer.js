@@ -2,7 +2,7 @@
 
 import { Actions as AddActions } from '../AddNoteFormContainer/actionTypes';
 import { Actions } from './actionTypes';
-import type { Note, Notes, Action } from '../../types';
+import type { Notes, Action } from '../../types';
 
 export type State = Notes;
 

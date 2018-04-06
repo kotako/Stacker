@@ -7,8 +7,6 @@ import ic_note from './ic_note.png';
 import ic_completed from './ic_completed.png';
 import { Filters } from '../../types/filter';
 
-import type { Filter } from '../../types';
-
 const Container = styled.div`
   display: flex;
   align-items: center;

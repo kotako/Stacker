@@ -3,7 +3,6 @@
 import type { Note } from '../../types';
 import { Actions } from './actionTypes';
 import type { CompleteNote, DeleteNote, UpdateNote } from './actionTypes';
-import type { Action } from './actionTypes';
 
 export const completeNote = (note: Note): CompleteNote => ({
   type: Actions.COMPLETE_NOTE,
