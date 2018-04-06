@@ -6,9 +6,21 @@ import styled from 'styled-components';
 import type { Filter } from '../../types/index';
 
 const Container = styled.div`
-  ${props => props.active ? `background-color: #000;`:``}
+  flex: 1;
+  height: 24px;
+  text-align: center;
+`;
+
+const Icon = styled.img`
+  width: 24px;
+  height: 24px;
+  background-size: cover;
   &:hover {
-    background-color: #d9d;
+    filter: opacity(90%);
+  }
+  ${props => props.active
+    ? `filter: opacity(100%);`
+    : `filter: opacity(60%);`
   }
 `;
 
@@ -16,12 +28,12 @@ type Props = {
   active: boolean,
   filter: Filter,
   toggleFilter: Function,
-  children?: React.Node
+  iconSrc: string
 };
 
-const FilterLink = ({ active, filter, toggleFilter, children }: Props) => (
+const FilterLink = ({ active, filter, toggleFilter, iconSrc }: Props) => (
   <Container active={active} onClick={ () => toggleFilter(filter) }>
-    {children}
+    <Icon active={active} src={iconSrc} alt={filter} />
   </Container>
 );
 

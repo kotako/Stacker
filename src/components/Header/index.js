@@ -16,20 +16,10 @@ const Container = styled.div`
   background-color: #FF6978;
 `;
 
-const Icon = styled.img`
-  width: 24px;
-  height: 24px;
-  background-size: cover;
-`;
-
 const Header = () => (
   <Container>
-    <FilterLinkContainer filter={Filters.SHOW_ALL}>
-      <Icon src={ic_note} alt={Filters.SHOW_ALL} />
-    </FilterLinkContainer>
-    <FilterLinkContainer filter={Filters.SHOW_COMPLETED}>
-      <Icon src={ic_completed} alt={Filters.SHOW_COMPLETED} />
-    </FilterLinkContainer>
+    <FilterLinkContainer iconSrc={ic_note} filter={Filters.SHOW_ALL} />
+    <FilterLinkContainer iconSrc={ic_completed} filter={Filters.SHOW_COMPLETED} />
   </Container>
 );
 
