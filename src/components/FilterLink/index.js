@@ -1,23 +1,28 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
+import styled from 'styled-components';
 
 import type { Filter } from '../../types/index';
 
+const Container = styled.div`
+  ${props => props.active ? `background-color: #000;`:``}
+  &:hover {
+    background-color: #d9d;
+  }
+`;
+
 type Props = {
+  active: boolean,
   filter: Filter,
-  activeFilter: Filter,
-  onClick: Function
+  toggleFilter: Function,
+  children?: React.Node
 };
 
-// activeFilter == filter なら何かする
-
-const FilterLink = ({ filter, activeFilter, onClick }: Props) => (
-  <li>
-    <a href="#" onClick={ () => onClick(filter.name) }>
-      <img src={filter.iconSrc} alt={filter.name}/>
-    </a>
-  </li>
+const FilterLink = ({ active, filter, toggleFilter, children }: Props) => (
+  <Container active={active} onClick={ () => toggleFilter(filter) }>
+    {children}
+  </Container>
 );
 
 export default FilterLink;

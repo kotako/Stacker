@@ -2,11 +2,23 @@
 
 import { connect } from 'react-redux';
 import NotesList from '../../components/NotesList';
+import { Filters } from '../../types/filter';
 
-import type { State, Dispatch } from '../../types';
+import type { State, Dispatch, Notes, Filter } from '../../types';
+
+const notesFilter = (notes: Notes, filter: Filter): Notes => {
+  switch (filter) {
+    case Filters.SHOW_ALL:
+      return notes.filter(note => !note.completed);
+    case Filters.SHOW_COMPLETED:
+      return notes.filter(note => note.completed);
+    default:
+      return notes;
+  }
+};
 
 const mapStateToProps = (state: State): Object =>({
-  notes: state.NotesList
+  notes: notesFilter(state.NotesList, state.Filter.active)
 });
 
 const mapDispatchToProps = (dispatch: Dispatch): Object => ({
