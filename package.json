@@ -12,15 +12,15 @@
     "electron": "electron . --hot"
   },
   "dependencies": {
-    "electron": "^1.8.4",
+    "electron": "^1.8.6",
     "flow-typed": "^2.4.0",
-    "moment": "^2.22.0",
-    "react": "^16.3.0",
-    "react-dev-utils": "^5.0.0",
-    "react-dom": "^16.3.0",
+    "moment": "^2.22.1",
+    "react": "^16.3.2",
+    "react-dev-utils": "^5.0.1",
+    "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",
-    "styled-components": "^3.2.5",
+    "styled-components": "^3.2.6",
     "whatwg-fetch": "2.0.3"
   },
   "devDependencies": {
@@ -40,7 +40,7 @@
     "eslint": "4.10.0",
     "eslint-config-react-app": "^2.1.0",
     "eslint-loader": "1.9.0",
-    "eslint-plugin-flowtype": "^2.39.1",
+    "eslint-plugin-flowtype": "^2.46.3",
     "eslint-plugin-import": "2.8.0",
     "eslint-plugin-jsx-a11y": "5.1.1",
     "eslint-plugin-react": "7.4.0",
